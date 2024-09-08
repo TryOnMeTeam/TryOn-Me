@@ -1,0 +1,3 @@
+<input type="file" (change)="onImageUpload($event)" accept="image/*">
+<img [src]="previewImage" *ngIf="previewImage" alt="Image Preview">
+<button (click)="analyzeImage()">Analyze Image</button>

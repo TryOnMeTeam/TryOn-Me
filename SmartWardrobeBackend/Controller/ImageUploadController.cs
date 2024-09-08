@@ -10,7 +10,7 @@ public class ImageUploadController : ControllerBase
 {
     [AllowAnonymous]
     [HttpPost("upload")]
-    public IActionResult UploadImage()
+    public IActionResult UploadImage(IFormFile file)
     {
         // Path to the Python script
         string pythonScriptPath = "/Users/codeinsight/Documents/TryOnMe/SmartWardrobeAI/api_call.py"; // Update with the path to your Python script

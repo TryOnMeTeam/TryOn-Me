@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-image-upload',
@@ -6,24 +6,50 @@ import { Component } from '@angular/core';
   styleUrls: ['./image-upload.component.css']
 })
 export class ImageUploadComponent {
+  userImage: string | ArrayBuffer | null = null;
+  productImage: string | ArrayBuffer | null = null;
 
-  previewImage: string | ArrayBuffer | null = null;
-  uploadedImage: File | null = null;
+  @ViewChild('userUpload', { static: false }) userUpload!: ElementRef<HTMLInputElement>;
+  @ViewChild('productUpload', { static: false }) productUpload!: ElementRef<HTMLInputElement>;
 
-  onImageUpload(event: any) {
+  triggerUpload(inputElement: HTMLInputElement) {
+    inputElement.click();
+  }
+
+  onImageSelected(event: any, side: 'user' | 'product') {
     const file = event.target.files[0];
     if (file) {
-      this.uploadedImage = file;
-
       const reader = new FileReader();
-      reader.onload = e => this.previewImage = reader.result;
+      reader.onload = () => {
+        if (side === 'user') {
+          this.userImage = reader.result;
+        } else {
+          this.productImage = reader.result;
+        }
+      };
       reader.readAsDataURL(file);
     }
   }
 
-  analyzeImage() {
-    if (this.uploadedImage) {
-      // Call backend API to analyze image (we'll implement this later)
+  removeImage(side: 'user' | 'product') {
+    if (side === 'user') {
+      this.userImage = null;
+      if (this.userUpload) {
+        this.userUpload.nativeElement.value = '';
+      }
+    } else {
+      this.productImage = null;
+      if (this.productUpload) {
+        this.productUpload.nativeElement.value = '';
+      }
+    }
+  }
+
+  analyzeImages() {
+    if (this.userImage && this.productImage) {
+      alert('Analyzing the uploaded images!');
+    } else {
+      alert('Please upload both user and product images.');
     }
   }
 }

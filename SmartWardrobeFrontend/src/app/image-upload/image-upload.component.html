@@ -1,3 +1,37 @@
-<input type="file" (change)="onImageUpload($event)" accept="image/*">
-<img [src]="previewImage" *ngIf="previewImage" alt="Image Preview">
-<button (click)="analyzeImage()">Analyze Image</button>
+<div class="header">
+    <h1>TRY ON ME!!</h1>
+</div>
+
+<div class="container">
+    <div class="box-container user-container">
+        <div class="box user-box">
+            <img *ngIf="userImage" [src]="userImage" alt="User" />
+            <span *ngIf="!userImage">Upload User Image</span>
+        </div>
+        <div class="actions">
+            <button class="upload-btn" *ngIf="!userImage" (click)="triggerUpload(userUpload)">Upload</button>
+            <div class="button-group" *ngIf="userImage">
+                <button class="change-btn" (click)="triggerUpload(userUpload)">Change</button>
+                <button class="remove-btn" (click)="removeImage('user')">Remove</button>
+            </div>
+            <input type="file" #userUpload (change)="onImageSelected($event, 'user')" accept="image/*" hidden>
+        </div>
+    </div>
+
+    <button class="analyze-btn" (click)="analyzeImages()">Analyze</button>
+
+    <div class="box-container product-container">
+        <div class="box product-box">
+            <img *ngIf="productImage" [src]="productImage" alt="Product" />
+            <span *ngIf="!productImage">Upload Product Image</span>
+        </div>
+        <div class="actions">
+            <button class="upload-btn" *ngIf="!productImage" (click)="triggerUpload(productUpload)">Upload</button>
+            <div class="button-group" *ngIf="productImage">
+                <button class="change-btn" (click)="triggerUpload(productUpload)">Change</button>
+                <button class="remove-btn" (click)="removeImage('product')">Remove</button>
+            </div>
+            <input type="file" #productUpload (change)="onImageSelected($event, 'product')" accept="image/*" hidden>
+        </div>
+    </div>
+</div>

@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SmartWardrobeBackend.Data;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 public class Startup
 {
@@ -19,11 +20,11 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
-        
+        options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
-        
+
         // Add services to the container (e.g., MVC, CORS, Authentication, etc.)
         services.AddControllers();  // Enables API controllers
     }

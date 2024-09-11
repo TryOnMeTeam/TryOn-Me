@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SmartWardrobeBackend.Data;
 
 public class Startup
 {
@@ -16,6 +18,12 @@ public class Startup
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+        
+        services.AddEndpointsApiExplorer();
+        services.AddSwaggerGen();
+        
         // Add services to the container (e.g., MVC, CORS, Authentication, etc.)
         services.AddControllers();  // Enables API controllers
     }
@@ -35,6 +43,12 @@ public class Startup
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
+
+        // if (app.Environment.IsDevelopment())
+        // {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+        // }
 
         app.UseRouting();
 

@@ -1,11 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'app-user-image-upload',
-  templateUrl: './user-image-upload.component.html',
-  styleUrl: './user-image-upload.component.css'
+  selector: 'app-image-upload',
+  templateUrl: './image-upload.component.html',
+  styleUrls: ['./image-upload.component.css']
 })
-export class UserImageUploadComponent {
+export class ImageUploadComponent {
   userImage: string | ArrayBuffer | null = null;
   productImage: string | ArrayBuffer | null = null;
 

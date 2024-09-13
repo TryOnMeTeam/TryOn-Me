@@ -2,3 +2,4 @@ node_modules
 # SmartWardrobeUI/.vscode
 /SmartWardrobeBackend/obj
 /SmartWardrobeBackend/bin
+.angular/cache

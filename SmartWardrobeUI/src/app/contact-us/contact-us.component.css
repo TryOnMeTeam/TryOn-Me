@@ -1,0 +1,72 @@
+.contact-container {
+    background-color: grey;
+    padding: 40px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    width: calc(210% - 250px);
+    /* Deducting the width of the sidebar */
+    max-width: 1700px;
+    /* Set a maximum width */
+    margin: 0 auto;
+    /* Center the container */
+    transition: width 0.3s ease-in-out;
+    /* Smooth transition for width changes */
+}
+
+.contact-header {
+    text-align: center;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.info-block {
+    text-align: center;
+    margin: 10px;
+    flex: 1;
+}
+
+.map-container {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.message-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 98%;
+}
+
+.message-form h4 {
+    color: #0066cc;
+    margin-bottom: 20px;
+}
+
+.message-form input,
+.message-form textarea {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.message-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.message-form button:hover {
+    background-color: #004d99;
+}

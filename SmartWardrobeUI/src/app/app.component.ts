@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SmartWardrobeUI';
+  isCollapsed = false;
+
+  toggleNav() {
+    this.isCollapsed = !this.isCollapsed;
+  }
 }

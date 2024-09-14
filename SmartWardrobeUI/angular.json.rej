@@ -1,0 +1,9 @@
+diff a/SmartWardrobeUI/angular.json b/SmartWardrobeUI/angular.json	(rejected hunks)
+@@ -37,6 +37,7 @@
+               }
+             ],
+             "styles": [
++              "@angular/material/prebuilt-themes/azure-blue.css",
+               "src/styles.css"
+             ],
+             "scripts": [],

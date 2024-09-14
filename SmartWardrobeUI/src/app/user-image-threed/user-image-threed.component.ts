@@ -47,6 +47,7 @@ export class UserImageThreedComponent implements AfterViewInit{
     //   canvas: this.rendererCanvas.nativeElement
     // });
 
+
     // this.renderer.setSize(this.rendererCanvas.nativeElement.width, this.rendererCanvas.nativeElement.height);
 
     // const geometry = new THREE.PlaneGeometry(3, 3);

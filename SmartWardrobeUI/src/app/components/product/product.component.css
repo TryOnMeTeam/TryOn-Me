@@ -1,13 +1,11 @@
-/* Header styles */
 .header {
     text-align: center;
     margin-bottom: 30px;
     background-color: #17191d;
     padding: 20px;
     border-radius: 8px;
-    width: calc(154.5% - 250px);
-    /* Deducting the width of the sidebar */
-    max-width: 1700px;
+    width: auto;
+    box-sizing: border-box;
 }
 
 .header h1 {
@@ -17,17 +15,21 @@
     margin: 0;
 }
 
+.main-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
     height: 80vh;
     background: url('https://example.com/background-image.jpg') no-repeat center center;
     background-size: cover;
-    padding: 0 20px;
-    width: calc(155% - 250px);
-    /* Deducting the width of the sidebar */
-    max-width: 1700px;
+    padding: 20px;
+    width: auto;
+    box-sizing: border-box;
 }
 
 .box-container {
@@ -36,20 +38,18 @@
     align-items: center;
     flex: 1;
     position: relative;
-}
-
-.left-container,
-.right-container {
-    display: flex;
-    justify-content: center;
+    width: auto;
+    box-sizing: border-box;
 }
 
 .box {
-    width: 450px;
-    height: 450px;
+    width: 90%;
+    max-width: 450px;
+    height: auto;
+    aspect-ratio: 1;
     border: 2px solid #ddd;
     border-radius: 12px;
-    margin: 0 20px;
+    margin: 10px 0;
     position: relative;
     display: flex;
     justify-content: center;
@@ -86,7 +86,7 @@ span {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    bottom: -70px;
+    bottom: 10px;
 }
 
 .upload-btn,
@@ -144,4 +144,24 @@ span {
 .analyze-btn:hover {
     background-color: #2980b9;
     transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .box-container {
+        width: 100%;
+    }
+
+    .actions {
+        position: relative;
+        bottom: auto;
+        margin-top: 10px;
+    }
 }

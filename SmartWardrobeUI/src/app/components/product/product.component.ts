@@ -6,12 +6,13 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
+
   userImage: string | ArrayBuffer | null = null;
   productImage: string | ArrayBuffer | null = null;
 
   @ViewChild('userUpload', { static: false }) userUpload!: ElementRef<HTMLInputElement>;
   @ViewChild('productUpload', { static: false }) productUpload!: ElementRef<HTMLInputElement>;
-
+  
   triggerUpload(inputElement: HTMLInputElement) {
     inputElement.click();
   }

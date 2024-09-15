@@ -1,0 +1,25 @@
+<mat-toolbar class="mat-elevation-z3">
+    <button mat-icon-button (click)="collapsed.set(!collapsed())"><mat-icon>menu</mat-icon></button>  
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav opened mode="side" [style.width]="sideNavWidth()" [style.background-color]="'#ecf0f1'">
+
+        <div class="sidenav-header">
+            <img class="logo-img" [style.width]="logoImgSize()" [style.height]="logoImgSize()" src="../../assets/shivam.png" alt="">
+        </div>
+
+        <mat-nav-list style="margin-top: 40px;">
+            <a *ngFor="let item of navigationItems()"
+                mat-list-item 
+                [routerLink]="item.route" 
+                routerLinkActive="selected-menu-item"
+                #router="routerLinkActive"
+                [activated]="router.isActive">
+                <mat-icon [fontSet]="router.isActive ? 'material-icons' : 'material-icons-outlined'" matListItemIcon>{{ item.icon }}</mat-icon>
+                <span matListItemTitle *ngIf="sideNavWidth()">{{ item.label }}</span>
+            </a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content [style.margin-left]="sideNavWidth()"><router-outlet></router-outlet></mat-sidenav-content>
+</mat-sidenav-container>

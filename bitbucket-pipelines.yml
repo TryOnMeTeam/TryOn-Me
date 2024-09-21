@@ -1,0 +1,26 @@
+image: mcr.microsoft.com/dotnet/sdk:8.0
+
+pipelines:
+  default:
+    - step:
+        name: Build Angular and Deploy .NET
+        script:
+          
+          - apt-get update && apt-get install -y nodejs npm
+          - npm install -g @angular/cli
+
+          
+          - cd SmartWardrobeUI
+          - npm install
+          - ng build --configuration production
+
+          
+          - cd ../SmartWardrobeBackend
+          - dotnet build SmartWardrobeBackend.csproj
+          
+          - dotnet publish SmartWardrobeBackend.csproj -c Release -o publish
+
+       
+          - echo "Deploying to your server..."
+          - scp -r publish/* Shiva@192.168.1.16:/inetpub/wwwroot/SmartWardrobeBackend
+          - scp -r ../SmartWardrobeUI/dist/* Shiva@192.168.1.16:/inetpub/wwwroot/SmartWardrobeUI

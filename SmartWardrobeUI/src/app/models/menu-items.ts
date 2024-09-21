@@ -6,6 +6,6 @@ export class MenuItems {
     constructor(icon: string, label: string, route: string) {
         this.label = label;
         this.icon = icon;
-        this.route = route;
+        this.route = route; 
     }
 }

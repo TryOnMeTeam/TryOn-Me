@@ -1,0 +1,88 @@
+<div class="filter">
+    <button (click)="showFilterPopup()">Custom Filters</button>
+</div>
+
+<div class="popup" *ngIf="isPopupVisible">
+    <div class="container">
+        <div class="heading">
+            <h2>Customize display</h2>
+            <hr class="divider"> <!-- Added horizontal line -->
+        </div>
+        
+        <!-- Catalogs Section -->
+        <div class="catalog-section">
+            <div class="horizontal-list columns">
+                <button class="button" (click)="toggleOccasionsList()">Occasions</button>
+                <button class="button" (click)="toggleGenderList()">Gender</button>
+                <button class="button" (click)="togglePriceList()">Price</button>
+            </div>
+        </div>
+
+        <div class="heading">
+            <hr class="divider"> <!-- Added horizontal line -->
+        </div>
+
+        <!-- Occasions List -->
+        <div *ngIf="showOccasionList">
+            <div class="horizontal-list">
+                <button 
+                    class="button" 
+                    *ngFor="let occasion of occasions"
+                    [class.active]="activeOccasions.includes(occasion.id)"
+                    (click)="toggleOccasion(occasion.id)">
+                    {{ occasion.name }}
+                </button>
+            </div>
+        </div>
+
+        <!-- Gender Section -->
+        <div *ngIf="showGenderList">
+            <div class="horizontal-list">
+                <button 
+                class="button" 
+                *ngFor="let gen of genders"
+                [class.active]="activeGenders.includes(gen.name)"
+                (click)="toggleGender(gen.name)">
+                {{ gen.name }}
+                </button>
+            </div>
+        </div>
+
+        <!-- Price Section -->
+        <div *ngIf="showPriceList">
+            <div class="horizontal-list">
+                <button 
+                class="button" 
+                *ngFor="let price of prices"
+                [class.active]="activePrices.includes(price.name)"
+                (click)="togglePrice(price.name)">
+                {{ price.name }}
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Buttons -->
+    <div class="buttons"> <!-- Adjust margin for spacing -->
+        <button class="reset-button" (click)="reset()">Reset</button>
+        <button class="save-button" (click)="save()">Save</button>
+    </div>
+</div>
+
+<div class="product-list">
+    <ng-container *ngFor="let product of products">
+        <div class="product" *ngIf="isProductVisible(product)" (click)="selectProduct(product)">
+            <img [src]="product.imageUrl" alt="{{ product.name }}" />
+        </div>
+    </ng-container>
+</div>
+
+<!-- Sidebar for displaying selected product details -->
+<div class="sidebar" *ngIf="selectedProduct">
+    <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}" />
+    <h4>{{ selectedProduct.name }}</h4>
+    <p>{{ selectedProduct.description }}</p>
+    <p>Price: {{ selectedProduct.price | currency }}</p>
+    <button class="close-btn" (click)="closeSidebar()">Close</button>
+</div>

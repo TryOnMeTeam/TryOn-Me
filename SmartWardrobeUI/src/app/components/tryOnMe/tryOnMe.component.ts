@@ -1,11 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.css'
+  selector: 'app-tryOnMe',
+  templateUrl: './tryOnMe.component.html',
+  styleUrl: './tryOnMe.component.css'
 })
-export class ProductComponent {
+export class TryOnMeComponent {
 
   userImage: string | ArrayBuffer | null = null;
   productImage: string | ArrayBuffer | null = null;

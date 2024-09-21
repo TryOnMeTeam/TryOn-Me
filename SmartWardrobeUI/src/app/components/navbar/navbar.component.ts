@@ -9,10 +9,10 @@ export class NavbarComponent {
 
   navigationItems = signal([
     { icon: 'overview', label: 'OVERVIEW', route: '/overview' },
-    { icon: 'tutorial', label: 'TUTORIAL', route: '/tutorial' },
-    { icon: 'product', label: 'TRY ON', route: '/product' },
+    { icon: 'tryOnMe', label: 'TRY ON', route: '/tryOnMe' },
+    { icon: 'products', label: 'PRODUCTS', route: '/products' },
     { icon: 'team', label: 'TEAM', route: '/team' },
-    { icon: 'contact-us', label: 'CONTACT US', route: '/contact-us' },
+    { icon: 'contact', label: 'CONTACT', route: '/contact' },
   ]);
 
   collapsed = signal(false);

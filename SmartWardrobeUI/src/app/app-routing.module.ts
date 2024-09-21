@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OverviewComponent } from './components/overview/overview.component';
-import { TutorialComponent } from './components/tutorial/tutorial.component';
-import { ProductComponent } from './components/product/product.component';
 import { TeamComponent } from './components/team/team.component';
-import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { TryOnMeComponent } from './components/tryOnMe/tryOnMe.component';
+import { ProductsComponent } from './components/products/products.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/overview', pathMatch: 'full' },
   { path: 'overview', component: OverviewComponent },
-  { path: 'tutorial', component: TutorialComponent },
-  { path: 'product', component: ProductComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'tryOnMe', component: TryOnMeComponent },
   { path: 'team', component: TeamComponent },
-  { path: 'contact-us', component: ContactUsComponent }
+  { path: 'contact', component: ContactComponent }
 ];
 
 @NgModule({

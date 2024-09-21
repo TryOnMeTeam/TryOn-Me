@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { CommonModule } from '@angular/common';
-import { ProductComponent } from './components/product/product.component';
 import { TeamComponent } from './components/team/team.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -15,12 +14,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TryOnMeComponent } from './components/tryOnMe/tryOnMe.component';
+import { ProductsComponent } from './components/products/products.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImageUploadComponent,
-    ProductComponent,
+    TryOnMeComponent,
+    ProductsComponent,
     TeamComponent,
     NavbarComponent
   ],
@@ -33,7 +36,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()

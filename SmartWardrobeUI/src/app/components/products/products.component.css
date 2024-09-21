@@ -1,0 +1,134 @@
+.filter {
+    margin-bottom :20px;
+ }
+ 
+ .popup {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: solid #ccc;
+    padding: 30px;
+    z-index: 200;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    width: 650px;
+    border-radius: 8px;
+ }
+ 
+ .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between sections */
+ }
+ 
+ .heading {
+    text-align: center; /* Center align heading */
+ }
+ 
+ .divider {
+    border-top: 1px solid #ddd; /* Horizontal line */
+    margin-top: 10px; /* Space above line */
+    margin-bottom: 20px; /* Space below line */
+ }
+ 
+ .catalog-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+ }
+ 
+ .columns {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between; /* Space between buttons */
+ }
+ 
+ .button {
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    border-radius: 30px;
+    background-color: white;
+    color: #007bff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+ }
+ 
+ .button:hover,
+ .button.active {
+    background-color: #007bff; /* Change background on hover */
+    color:white; /* Change text color on hover */
+ }
+ 
+ .product-list {
+     display:flex;
+     flex-wrap :wrap;
+     margin-top :80px; /* Space for top nav */
+ }
+  
+ .product {
+     border-radius :5px;
+     margin-bottom :10px;
+     margin-right :10px;
+     cursor:pointer;
+     width :30%; /* Increase width to fit more products */
+     height :400px; /* Set height for products */
+ }
+  
+ .product img {
+     max-width :100%;
+     max-height :100%;
+     width:auto;
+     height:auto;
+     position:absolute;
+     top :50%;
+     left :50%;
+     transform :translate(-50%, -50%);
+ }
+ 
+ .sidebar {
+    position :fixed;
+    right :0;
+    top :60px; /* Adjust for top nav */
+    width :400px; 
+    height :calc(100% -60px); 
+    background-color:white; 
+    box-shadow:-2px0px5pxrgba(0,0,0,.5); 
+    padding :20px; 
+ }
+ 
+ .close-btn {
+    background-color:red; 
+    color:white; 
+ }
+
+ .horizontal-list {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of buttons if needed */
+    gap: 8px; /* Small gap between buttons */
+    justify-content: flex-start; /* Align buttons to the start */
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.reset-button, .save-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-button {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.save-button {
+    background-color: #007bff;
+    color: white;
+}

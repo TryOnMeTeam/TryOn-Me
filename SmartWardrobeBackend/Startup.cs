@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SmartWardrobeBackend.Data;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using SmartWardrobeBackend.Features;
 
 public class Startup
 {
@@ -27,6 +28,7 @@ public class Startup
 
         // Add services to the container (e.g., MVC, CORS, Authentication, etc.)
         services.AddControllers();  // Enables API controllers
+        services.AddScoped<GetAllProducts>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
